@@ -1,0 +1,27 @@
+QUERY 1
+
+SELECT trips.start_station_id,
+      trips.start_station_name,
+      trips.start_date,
+      trips.subscriber_type,
+      stations.landmark,
+      stations.name
+FROM `bigquery-public-data.san_francisco.bikeshare_trips` AS trips
+JOIN `bigquery-public-data.san_francisco.bikeshare_stations` AS stations
+ON trips.start_station_id = stations.station_id
+WHERE start_date BETWEEN '2016-01-01' AND '2016-04-01' AND landmark = 'Redwood City' AND subscriber_type ="Subscriber"
+ORDER BY start_date
+
+QUERY 2
+
+SELECT trips.start_station_id,
+      trips.start_station_name,
+      trips.start_date,
+      trips.subscriber_type,
+      stations.landmark,
+      stations.name
+FROM `bigquery-public-data.san_francisco.bikeshare_trips` AS trips
+JOIN `bigquery-public-data.san_francisco.bikeshare_stations` AS stations
+ON trips.start_station_id = stations.station_id
+WHERE start_date BETWEEN '2016-04-01' AND '2016-07-01' AND landmark = 'Redwood City' AND subscriber_type ="Subscriber"
+ORDER BY start_date
